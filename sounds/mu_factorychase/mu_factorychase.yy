@@ -17,7 +17,7 @@
   "soundFile": "mu_factorychase.ogg",
   "duration": 56.858414,
   "parent": {
-    "name": "music",
-    "path": "folders/Sounds/music.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

@@ -17,7 +17,7 @@
   "soundFile": "sfx_crawl.ogg",
   "duration": 0.164762,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

@@ -28,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "baddies",
-    "path": "folders/Objects/baddies.yy",
+    "name": "Blocks",
+    "path": "folders/Objects/Level/Blocks.yy",
   },
 }

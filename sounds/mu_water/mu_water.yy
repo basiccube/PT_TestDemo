@@ -17,7 +17,7 @@
   "soundFile": "mu_water.ogg",
   "duration": 104.69245,
   "parent": {
-    "name": "music",
-    "path": "folders/Sounds/music.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

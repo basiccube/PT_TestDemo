@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "roomtransition",
-    "path": "folders/Objects/visuals/roomtransition.yy",
+    "name": "Room Transitions",
+    "path": "folders/Objects/Object-created/Room Transitions.yy",
   },
 }

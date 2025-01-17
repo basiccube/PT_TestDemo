@@ -17,7 +17,7 @@
   "soundFile": "sfx_victory.wav",
   "duration": 7.598413,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

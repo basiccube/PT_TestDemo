@@ -1,4 +1,4 @@
-hurted = 0
+hurted = false
 inv_frames = 0
-key_particles = 0
+key_particles = false
 

@@ -32,7 +32,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "hook",
-    "path": "folders/Objects/roomstructure/hook.yy",
+    "name": "Hook",
+    "path": "folders/Objects/Level/Hook.yy",
   },
 }

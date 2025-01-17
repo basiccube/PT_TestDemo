@@ -1,115 +1,115 @@
 function scr_player_jump()
 {
-	input_get()
-	move = (key_left + key_right)
+	move = (keyLeft.held + keyRight.held)
 	if (momemtum == 0)
 	    hsp = (move * movespeed)
 	else
 	    hsp = (xscale * movespeed)
+	
 	if (move == 0 && momemtum == 0)
 	    movespeed = 0
 	if (move != 0 && ((movespeed < 4 && !in_water) || (movespeed < 2 && in_water)))
 	    movespeed += 0.5
-	if ((place_meeting((x + 1), y, obj_collisionparent) && move == 1) || (place_meeting((x - 1), y, obj_collisionparent) && move == -1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes)))))
+	
+	if (check_solid(x + xscale, y) && move != 0 && !place_meeting(x + sign(hsp), y, obj_slope))
 	    movespeed = 0
-	if (xscale == 1 && move == -1)
+	if (move == -xscale)
 	{
-	    mach2 = 0
-	    movespeed = 0
-	    momemtum = 0
+		mach2 = 0
+		movespeed = 0
+		momemtum = false
 	}
-	if (xscale == -1 && move == 1)
-	{
-	    mach2 = 0
-	    momemtum = 0
-	    movespeed = 0
-	}
-	if key_down
+	
+	if keyDown.held
 	{
 	    if (vsp < 0.5)
 	        vsp /= 2
 	    state = states.crouchjump
 	}
+	
 	landAnim = true
-	if ((!key_jump2) && jumpstop == 0 && vsp < 0.5 && stompAnim == false)
+	if (!keyJump.held && !jumpstop && vsp < 0.5)
 	{
 	    vsp /= 2
-	    jumpstop = 1
+	    jumpstop = true
 	}
 	if (ladderbuffer > 0)
 	    ladderbuffer--
-	if (place_meeting(x, (y - 1), obj_collisionparent) && jumpstop == 0 && jumpAnim == true)
+	if (check_solid(x, y - 1) && !jumpstop && jumpAnim)
 	{
 	    vsp = grav
-	    jumpstop = 1
+	    jumpstop = true
 	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && vsp > 0 && key_attack && momemtum == 1)
+	
+	if (grounded && vsp > 0 && keyDash.held && momemtum)
 	{
 	    landAnim = false
 	    state = states.mach1
 	    jumpAnim = true
-	    jumpstop = 0
+	    jumpstop = false
 	    image_index = 0
-	    if (!(place_meeting(x, y, obj_water2)))
+		
+	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	    sound_play(sfx_land, true, soundtype.stereo)
 	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && vsp > 0 && ((!key_attack) || momemtum == 0))
+	if (grounded && vsp > 0 && (!keyDash.held || !momemtum))
 	{
-	    if key_attack
+	    if keyDash.held
 	        landAnim = false
 	    state = states.normal
 	    jumpAnim = true
-	    jumpstop = 0
+	    jumpstop = false
 	    image_index = 0
-	    if (!(place_meeting(x, y, obj_water2)))
+		
+	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	    sound_play(sfx_land, true, soundtype.stereo)
 	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && input_buffer_jump < 8 && (!key_down) && vsp > 0)
+	if (grounded && input_buffer_jump < 8 && !keyDown.held && vsp > 0)
 	{
-	    stompAnim = false
 		vsp = -9
 	    state = states.jump
 	    jumpAnim = true
-	    jumpstop = 0
+	    jumpstop = false
 	    image_index = 0
-	    if (!(place_meeting(x, y, obj_water2)))
+		
+	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
-	if key_jump
+	if keyJump.pressed
 	    input_buffer_jump = 0
-	if (stompAnim == false)
+	
+	if (sprite_index != spr_player_Sjump)
 	{
-	    if (jumpAnim == true)
+	    if jumpAnim
 	    {
-	        if (move != 0 || momemtum == 1)
+	        if (move != 0 || momemtum)
 	            sprite_index = spr_player_jump2
 	        else
 	            sprite_index = spr_player_jump
-	        if (floor(image_index) == 8)
+			
+	        if (floor(image_index) == image_number - 1)
 	            jumpAnim = false
 	    }
-	    if (jumpAnim == false)
+	    else
 	    {
-	        if (move != 0 || momemtum == 1)
+	        if (move != 0 || momemtum)
 	            sprite_index = spr_player_fall2
 	        else
 	            sprite_index = spr_player_fall
 	    }
 	}
+	
 	if (move != 0)
 	    xscale = move
+	
 	if (in_water)
 		image_speed = 0.2
 	else
 		image_speed = 0.35
-	perform_collisions()
-
-
-
 }

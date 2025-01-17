@@ -1,21 +1,20 @@
 function scr_player_runonball()
 {
-	input_get()
-	move = (key_left + key_right)
-	if (!key_attack)
+	move = (keyLeft.held + keyRight.held)
+	if (!keyDash.held)
 	    hsp = (move * movespeed)
 	else
-	    hsp = (image_xscale * movespeed)
-	jumpstop = 0
-	vsp = obj_player.vsp
-	if (!(place_meeting(x, (y + 1), obj_runonball)))
+	    hsp = (xscale * movespeed)
+	jumpstop = false
+
+	if !place_meeting(x, y + 1, obj_runonball)
 	{
 	    mach2 = 0
 	    state = states.normal
 	    jumpAnim = true
-	    jumpstop = 0
 	}
-	if (key_jump && place_meeting(x, (y + 1), obj_collisionparent) && (!key_down) && (!key_attack))
+	
+	if (keyJump.pressed && grounded && !keyDown.held && !keyDash.held)
 	{
 	    vsp = -7
 	    state = states.jump
@@ -24,9 +23,9 @@ function scr_player_runonball()
 	    jumpAnim = true
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
+	
 	movespeed = 2.5
-	sprite_index = spr_player_slipnslide
-	if (key_attack && place_meeting(x, (y + 1), obj_collisionparent))
+	if (keyDash.held && grounded)
 	{
 	    if (mach2 < 35)
 	    {
@@ -36,8 +35,9 @@ function scr_player_runonball()
 	    if (mach2 >= 35)
 	        movespeed = 6
 	}
-	if (!key_attack)
+	if (!keyDash.held)
 	    mach2 = 0
+	
+	sprite_index = spr_player_slipnslide
 	image_speed = 0.35
-	perform_collisions()
 }

@@ -30,7 +30,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "detection",
-    "path": "folders/Objects/level/detection.yy",
+    "name": "Detection",
+    "path": "folders/Objects/Object-created/Detection.yy",
   },
 }

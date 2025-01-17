@@ -17,7 +17,7 @@
   "soundFile": "sfx_keyobtained.ogg",
   "duration": 5.669637,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

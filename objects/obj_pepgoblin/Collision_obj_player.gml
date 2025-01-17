@@ -41,11 +41,11 @@ if (obj_player.y < y && obj_player.state != states.hurt && obj_player.attacking 
         image_xscale = 1
         hsp = 6
     }
-    if (obj_player.key_jump2 && obj_player.y < y && obj_player.vsp > 0)
+    if (obj_player.keyJump.held && obj_player.y < y && obj_player.vsp > 0)
     {
-        if (!obj_player.key_up)
+        if !obj_player.keyUp.held
             obj_player.vsp = -11
-        if obj_player.key_up
+        if obj_player.keyUp.held
         {
             obj_player.state = states.highjump
             obj_player.vsp = -14

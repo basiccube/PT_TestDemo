@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_audiofunctions",
+  "name": "scr_audioFunctions",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "utilities",
-    "path": "folders/Scripts/utilities.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
 }

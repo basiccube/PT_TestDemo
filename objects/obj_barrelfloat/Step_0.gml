@@ -15,5 +15,5 @@ if place_meeting(x, y, obj_water2)
     vsp -= 1
 else
     vsp = 0
-perform_solid_collisions()
+perform_collisions(collisionflags.ignoreplatforms)
 

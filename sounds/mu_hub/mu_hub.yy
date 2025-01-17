@@ -17,7 +17,7 @@
   "soundFile": "mu_hub.mp3",
   "duration": 97.0449,
   "parent": {
-    "name": "music",
-    "path": "folders/Sounds/music.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

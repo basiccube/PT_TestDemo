@@ -17,7 +17,7 @@
   "soundFile": "mu_cave.ogg",
   "duration": 98.631226,
   "parent": {
-    "name": "music",
-    "path": "folders/Sounds/music.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

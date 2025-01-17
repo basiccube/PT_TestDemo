@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_collisionparent",
-    "path": "objects/obj_collisionparent/obj_collisionparent.yy",
+    "name": "obj_solid",
+    "path": "objects/obj_solid/obj_solid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -37,7 +37,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "spawner",
-    "path": "folders/Objects/level/spawner.yy",
+    "name": "Spawners",
+    "path": "folders/Objects/Object-created/Spawners.yy",
   },
 }

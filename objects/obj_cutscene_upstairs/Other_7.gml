@@ -1,15 +1,25 @@
 image_speed = 0
-obj_player.visible = true
-obj_camera.visible = true
-obj_player.state = states.comingoutdoor
-if instance_exists(obj_pizzakinshroom)
-    obj_pizzakinshroom.visible = true
-if instance_exists(obj_pizzakincheese)
-    obj_pizzakincheese.visible = true
-if instance_exists(obj_pizzakintomato)
-    obj_pizzakintomato.visible = true
-if instance_exists(obj_pizzakinsausage)
-    obj_pizzakinsausage.visible = true
-if instance_exists(obj_pizzakinpineapple)
-    obj_pizzakinpineapple.visible = true
+with (obj_player)
+{
+	visible = true
+	state = states.door
+	targetDoor = "A"
+	targetRoom = other.targetRoom
+	if !instance_exists(obj_fadeout)
+		instance_create(x, y, obj_fadeout)
+}
+with (obj_camera)
+	visible = true
 
+global.collect = 0
+global.key = false
+global.shroomfollow = false
+global.cheesefollow = false
+global.tomatofollow = false
+global.sausagefollow = false
+global.pineapplefollow = false
+instance_destroy(obj_pizzakinshroom)
+instance_destroy(obj_pizzakincheese)
+instance_destroy(obj_pizzakintomato)
+instance_destroy(obj_pizzakinsausage)
+instance_destroy(obj_pizzakinpineapple)

@@ -212,7 +212,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "peppino",
-    "path": "folders/Sprites/player/peppino.yy",
+    "name": "Idle and Movement",
+    "path": "folders/Sprites/Player/Idle and Movement.yy",
   },
 }

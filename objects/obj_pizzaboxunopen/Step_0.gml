@@ -15,7 +15,7 @@ if (place_meeting(x, y, obj_player) && obj_player.attacking == 1)
         }
     }
 }
-if (place_meeting(x, y, obj_player) && obj_player.key_jump2 && obj_player.vsp > 0 && (obj_player.state == states.jump || obj_player.state == states.highjump))
+if (place_meeting(x, y, obj_player) && obj_player.keyJump.held && obj_player.vsp > 0 && (obj_player.state == states.jump || obj_player.state == states.highjump))
 {
     if (sprite_index == spr_pizzaboxunopen)
     {
@@ -23,11 +23,12 @@ if (place_meeting(x, y, obj_player) && obj_player.key_jump2 && obj_player.vsp > 
         instance_create(x, y, obj_bangeffect)
     }
     sprite_index = spr_pizzaboxopen
+	
     with (obj_player)
     {
         sprite_index = spr_player_Sjump
         image_index = 0
-        stompAnim = true
+        jumpstop = true
         vsp = -14
         state = states.jump
     }

@@ -1,6 +1,6 @@
 if (vsp < 12)
     vsp += grav
-if place_meeting(x, (y + 1), obj_wall)
+if grounded
 {
     hsp = 0
     bounce = 0
@@ -25,5 +25,5 @@ if (place_meeting((x + 5), y, obj_player) && obj_player.xscale == -1 && (obj_pla
     obj_player.mach2 = 0
     sound_play(sfx_bump, true, soundtype.stereo)
 }
-perform_solid_collisions()
+perform_collisions(collisionflags.ignoreplatforms)
 

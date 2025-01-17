@@ -1,25 +1,20 @@
 function scr_player_mach1()
 {
-	input_get()
+	if (check_solid(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_slope))
+	{
+		mach2 = 0
+		state = states.normal
+		movespeed = 0
+	}
+	
+	if ((movespeed <= 5 && !in_water) || (movespeed <= 2 && in_water))
+	    movespeed += 0.35
+	
 	landAnim = false
-	if (place_meeting((x + 1), y, obj_collisionparent) && xscale == 1 && (!(place_meeting((x + 1), y, obj_slopes))))
-	{
-	    mach2 = 0
-	    state = states.normal
-	    movespeed = 0
-	}
-	if (place_meeting((x - 1), y, obj_collisionparent) && xscale == -1 && (!(place_meeting((x - 1), y, obj_slopes))))
-	{
-	    mach2 = 0
-	    state = states.normal
-	    movespeed = 0
-	}
-	if ((movespeed <= 5 && !in_water) || (movespeed <= 3 && in_water))
-	    movespeed += 0.2
 	machhitAnim = false
-	crouchslideAnim = true
-	hsp = floor((xscale * movespeed))
-	if (key_jump && place_meeting(x, (y + 1), obj_collisionparent) && key_attack)
+	hsp = floor(xscale * movespeed)
+	
+	if (keyJump.pressed && grounded && keyDash.held)
 	{
 	    momemtum = 1
 	    vsp = -9
@@ -27,61 +22,48 @@ function scr_player_mach1()
 	    jumpAnim = true
 	    image_index = 0
 	}
-	if place_meeting(x, (y + 1), obj_collisionparent)
+	
+	if grounded
 	{
 	    if (mach2 < 35)
 	        mach2++
 	    if (mach2 >= 35)
 	    {
-			flash = 1
+			flash = true
 	        state = states.mach2
 	        instance_create(x, y, obj_jumpdust)
 	    }
 	}
-	if (!(place_meeting(x, (y + 1), obj_collisionparent)))
+	
+	if !grounded
 	{
 	    momemtum = 1
 	    state = states.jump
 	    jumpAnim = false
 	    image_index = 0
 	}
-	if ((!key_attack) && place_meeting(x, (y + 1), obj_collisionparent))
+	
+	if (!keyDash.held && grounded)
 	{
 	    state = states.normal
 	    image_index = 0
 	    mach2 = 0
 	    machslideAnim = true
 	}
-	if key_down
+	if keyDown.held
 	{
 	    sound_play(sfx_slide, false, soundtype.stereo)
 	    state = states.crouchslide
 	    mach2 = 0
 	}
+	
 	sound_play(sfx_mach1, true, soundtype.player)
 	sprite_index = spr_player_mach
-	if (!in_water)
-	{
-		if (movespeed < 4)
-		    image_speed = 0.35
-		else if (movespeed > 4 && movespeed < 8)
-		    image_speed = 0.45
-		else
-		    image_speed = 0.6
-	}
+	if !in_water
+		image_speed = 0.35
 	else
-	{
-		if (movespeed < 4)
-		    image_speed = 0.2
-		else if (movespeed > 4 && movespeed < 8)
-		    image_speed = 0.35
-		else
-		    image_speed = 0.45
-	}
-	if ((!instance_exists(obj_dashcloud)) && (!(place_meeting(x, y, obj_water2))) && place_meeting(x, (y + 1), obj_collisionparent))
+		image_speed = 0.2
+	
+	if (!instance_exists(obj_dashcloud) && !place_meeting(x, y, obj_water2) && grounded)
 	    instance_create(x, y, obj_dashcloud)
-	perform_collisions()
-
-
-
 }

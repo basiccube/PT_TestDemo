@@ -1,5 +1,6 @@
-if (place_meeting((x + 1), y, obj_wall) || place_meeting((x - 1), y, obj_wall))
+if check_solid(x + image_xscale, y)
     hsp = 0
+
 if (place_meeting((x - 5), y, obj_player) && obj_player.xscale == 1 && (obj_player.state == states.mach1 || obj_player.state == states.mach2) && rolling == 0)
 {
     rolling = 1
@@ -18,10 +19,11 @@ if (place_meeting((x + 5), y, obj_player) && obj_player.xscale == -1 && (obj_pla
     obj_player.mach2 = 0
     sound_play(sfx_bump, true, soundtype.stereo)
 }
-perform_solid_collisions()
+
+perform_collisions(collisionflags.ignoreplatforms)
 with (obj_player)
 {
-    if place_meeting(x, (y + 1), obj_ball)
+    if place_meeting(x, y + 1, obj_ball)
     {
         vsp = -8
         jumpAnim = false

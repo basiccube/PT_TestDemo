@@ -1,7 +1,7 @@
 hsp = (image_xscale * 10)
 if (vsp < 12)
     vsp += grav
-if place_meeting((x - 1), y, obj_wall)
+if check_solid(x - 1, y)
 {
     with (obj_player)
     {
@@ -29,5 +29,5 @@ if place_meeting((x - 1), y, obj_wall)
     }
     instance_destroy()
 }
-perform_solid_collisions()
+perform_collisions(collisionflags.ignoreplatforms)
 

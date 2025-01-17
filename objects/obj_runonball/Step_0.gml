@@ -9,7 +9,7 @@ if (obj_player.state == states.runonball)
     hsp = obj_player.hsp
 else
     hsp = 0
-perform_solid_collisions()
+perform_collisions(collisionflags.ignoreplatforms)
 if place_meeting(x, (y + 1), obj_spike)
     vsp = 0
 

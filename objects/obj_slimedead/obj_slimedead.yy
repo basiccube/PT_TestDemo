@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "dead",
-    "path": "folders/Objects/baddies/dead.yy",
+    "name": "Dead Enemies",
+    "path": "folders/Objects/Visuals/Dead Enemies.yy",
   },
 }

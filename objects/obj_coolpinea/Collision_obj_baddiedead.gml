@@ -1,4 +1,4 @@
-if (other.hsp != 0 && !(vsp < 0) && place_meeting(x, (y + 1), obj_collisionparent))
+if (other.hsp != 0 && !(vsp < 0) && grounded)
 {
     instance_create(x, y, obj_bumpeffect)
     alarm[0] = 200

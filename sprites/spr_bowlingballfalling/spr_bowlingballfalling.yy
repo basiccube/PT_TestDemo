@@ -72,7 +72,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "bowlingball",
-    "path": "folders/Sprites/level/bowlingball.yy",
+    "name": "Bowling Ball",
+    "path": "folders/Sprites/Level/Bowling Ball.yy",
   },
 }

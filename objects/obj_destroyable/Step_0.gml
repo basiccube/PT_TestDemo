@@ -34,27 +34,28 @@ if (place_meeting(x, (y - 16), obj_player) && obj_player.vsp > 0 && obj_player.s
     instance_destroy()
 if (place_meeting(x, (y - 20), obj_player) && obj_player.vsp > 0 && obj_player.state == states.freefall)
     instance_destroy()
-if place_meeting(x, (y + 1), obj_player)
+
+if place_meeting(x, y + 1, obj_player)
 {
     with (obj_player)
     {
-        if (key_jump && state == states.crouch)
+        if (keyJump.pressed && state == states.crouch)
         {
             instance_destroy(other.id)
             vsp = 0
-            jumpstop = 1
+            jumpstop = true
         }
     }
 }
-if (place_meeting(x, (y + 1), obj_player) && obj_player.vsp <= 0.5)
+if (place_meeting(x, y + 1, obj_player) && obj_player.vsp <= 0.5)
 {
     with (obj_player)
     {
-        if (!(place_meeting(x, (y + 1), obj_collisionparent)))
+        if !grounded
         {
             instance_destroy(other.id)
             vsp = 0
-            jumpstop = 1
+            jumpstop = true
         }
     }
 }

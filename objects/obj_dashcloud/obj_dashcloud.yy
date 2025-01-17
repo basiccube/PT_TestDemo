@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "effects",
-    "path": "folders/Objects/visuals/effects.yy",
+    "name": "Effects",
+    "path": "folders/Objects/Visuals/Effects.yy",
   },
 }

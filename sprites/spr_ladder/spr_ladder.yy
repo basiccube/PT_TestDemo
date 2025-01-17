@@ -66,9 +66,33 @@
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d88c24ab-5ffa-445f-96b3-9291912e6250","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
-  "nineSlice": null,
+  "nineSlice": {
+    "left": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0,
+    "guideColour": [
+      4294902015,
+      4294902015,
+      4294902015,
+      4294902015,
+    ],
+    "highlightColour": 1728023040,
+    "highlightStyle": 0,
+    "enabled": true,
+    "tileMode": [
+      0,
+      0,
+      0,
+      0,
+      1,
+    ],
+    "resourceVersion": "1.0",
+    "loadedVersion": null,
+    "resourceType": "GMNineSliceData",
+  },
   "parent": {
-    "name": "level",
-    "path": "folders/Sprites/level.yy",
+    "name": "Level",
+    "path": "folders/Sprites/Level.yy",
   },
 }

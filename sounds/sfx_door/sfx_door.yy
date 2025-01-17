@@ -17,7 +17,7 @@
   "soundFile": "sfx_door.ogg",
   "duration": 0.549841,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

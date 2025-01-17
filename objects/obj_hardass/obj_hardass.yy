@@ -15,8 +15,8 @@
   },
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_bumpable",
-    "path": "objects/obj_bumpable/obj_bumpable.yy",
+    "name": "obj_baddie",
+    "path": "objects/obj_baddie/obj_baddie.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -39,7 +39,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "enemies",
-    "path": "folders/Objects/baddies/enemies.yy",
+    "name": "Enemies",
+    "path": "folders/Objects/Level/Enemies.yy",
   },
 }

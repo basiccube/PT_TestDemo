@@ -78,7 +78,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "shroom",
-    "path": "folders/Sprites/level/collectibles/pizzakin/shroom.yy",
+    "name": "Shroom",
+    "path": "folders/Sprites/Level/Toppins/Shroom.yy",
   },
 }

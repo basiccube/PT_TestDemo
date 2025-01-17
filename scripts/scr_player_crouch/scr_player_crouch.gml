@@ -1,17 +1,15 @@
 function scr_player_crouch()
 {
-	input_get()
-	move = (key_left + key_right)
+	move = (keyLeft.held + keyRight.held)
 	hsp = (move * movespeed)
 	mask_index = spr_crouchmask
-	turning = 0
-	if ((place_meeting((x + 1), y, obj_collisionparent) && xscale == 1) || (place_meeting((x - 1), y, obj_collisionparent) && xscale == -1))
-	    movespeed = 0
-	if (xscale == 1 && move == -1)
-	    movespeed = 0
-	if (xscale == -1 && move == 1)
-	    movespeed = 0
-	if ((!(place_meeting(x, (y + 1), obj_collisionparent))) && (!key_jump))
+	
+	if (check_solid(x + xscale, y) && move != 0 && place_meeting(x + sign(hsp), y, obj_slope))
+		movespeed = 0
+	if (move == -xscale)
+		movespeed = 0
+
+	if (!grounded && !keyJump.pressed)
 	{
 	    jumpAnim = false
 	    state = states.crouchjump
@@ -19,7 +17,7 @@ function scr_player_crouch()
 	    crouchAnim = true
 	    image_index = 0
 	}
-	if (key_jump && place_meeting(x, (y + 1), obj_collisionparent) && (!(place_meeting(x, (y - 16), obj_collisionparent))) && (!(place_meeting(x, (y - 32), obj_collisionparent))))
+	if (keyJump.pressed && grounded && !check_solid(x, y - 16) && !check_solid(x, y - 32))
 	{
 		vsp = -9.2
 	    state = states.crouchjump
@@ -29,7 +27,7 @@ function scr_player_crouch()
 	    jumpAnim = true
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && (!key_down) && (!(place_meeting(x, (y - 16), obj_collisionparent))) && (!(place_meeting(x, (y - 32), obj_collisionparent))) && (!key_jump))
+	if (grounded && !keyDown.held && !check_solid(x, y - 16) && !check_solid(x, y - 32) && !keyJump.pressed)
 	{
 	    state = states.normal
 	    movespeed = 0
@@ -38,10 +36,12 @@ function scr_player_crouch()
 	    image_index = 0
 	    mask_index = spr_player_mask
 	}
+	
 	if (movespeed < 2)
 	    movespeed += 0.5
 	else if (movespeed >= 2)
 		movespeed = 2
+	
 	if (crouchAnim == false)
 	{
 	    if (move == 0)
@@ -62,12 +62,9 @@ function scr_player_crouch()
 	}
 	if (move != 0 && hsp != 0)
 		sound_play(sfx_crawl, true, soundtype.player)
+	
 	if (in_water)
 		image_speed = 0.2
 	else
 		image_speed = 0.35
-	perform_collisions()
-
-
-
 }

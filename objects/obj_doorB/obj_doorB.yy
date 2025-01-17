@@ -28,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "warps",
-    "path": "folders/Objects/roomstructure/warps.yy",
+    "name": "Warps",
+    "path": "folders/Objects/Level/Warps.yy",
   },
 }

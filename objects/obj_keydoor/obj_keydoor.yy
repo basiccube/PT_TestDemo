@@ -32,7 +32,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "levelend",
-    "path": "folders/Objects/roomstructure/levelend.yy",
+    "name": "Level",
+    "path": "folders/Objects/Level.yy",
   },
 }

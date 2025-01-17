@@ -17,7 +17,7 @@
   "soundFile": "mu_factory.mp3",
   "duration": 236.112,
   "parent": {
-    "name": "music",
-    "path": "folders/Sounds/music.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

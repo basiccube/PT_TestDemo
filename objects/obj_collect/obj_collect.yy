@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "collectibles",
-    "path": "folders/Objects/roomstructure/collectibles.yy",
+    "name": "Collectibles",
+    "path": "folders/Objects/Level/Collectibles.yy",
   },
 }

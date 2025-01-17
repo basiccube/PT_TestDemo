@@ -90,7 +90,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "googlyeyes",
-    "path": "folders/Sprites/player/googlyeyes.yy",
+    "name": "Googly Eyes",
+    "path": "folders/Sprites/Player/Googly Eyes.yy",
   },
 }

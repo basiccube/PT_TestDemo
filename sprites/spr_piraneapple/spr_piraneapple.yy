@@ -82,7 +82,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "piraneapple",
-    "path": "folders/Sprites/baddies/piraneapple.yy",
+    "name": "Piraneapple",
+    "path": "folders/Sprites/Enemies/Piraneapple.yy",
   },
 }

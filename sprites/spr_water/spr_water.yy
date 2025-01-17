@@ -80,9 +80,33 @@
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"820649c6-d6c0-4f32-9177-2061587f3d8d","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
-  "nineSlice": null,
+  "nineSlice": {
+    "left": 0,
+    "top": 12,
+    "right": 0,
+    "bottom": 0,
+    "guideColour": [
+      4294902015,
+      4294902015,
+      4294902015,
+      4294902015,
+    ],
+    "highlightColour": 1728023040,
+    "highlightStyle": 0,
+    "enabled": true,
+    "tileMode": [
+      0,
+      1,
+      0,
+      0,
+      1,
+    ],
+    "resourceVersion": "1.0",
+    "loadedVersion": null,
+    "resourceType": "GMNineSliceData",
+  },
   "parent": {
-    "name": "water",
-    "path": "folders/Sprites/level/water.yy",
+    "name": "Water",
+    "path": "folders/Sprites/Level/Water.yy",
   },
 }

@@ -17,7 +17,7 @@
   "soundFile": "mu_tower.mp3",
   "duration": 380.6041,
   "parent": {
-    "name": "music",
-    "path": "folders/Sounds/music.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

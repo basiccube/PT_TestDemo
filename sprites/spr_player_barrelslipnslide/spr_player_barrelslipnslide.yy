@@ -80,7 +80,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "barrel",
-    "path": "folders/Sprites/player/barrel.yy",
+    "name": "Barrel",
+    "path": "folders/Sprites/Player/Barrel.yy",
   },
 }

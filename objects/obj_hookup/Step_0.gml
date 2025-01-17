@@ -3,7 +3,7 @@ if (hooked == 1 && drop == 0)
 {
     obj_player.x = x
     obj_player.y = (y + 40)
-    if key_jump
+    if keyJump.pressed
     {
         with (obj_player)
         {

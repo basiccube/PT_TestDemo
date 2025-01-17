@@ -29,7 +29,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "gamesettings",
-    "path": "folders/Objects/gamesettings.yy",
+    "name": "HUD and Managers",
+    "path": "folders/Objects/HUD and Managers.yy",
   },
 }

@@ -17,7 +17,7 @@
   "soundFile": "sfx_freefallland.ogg",
   "duration": 0.384263,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "smollmonster",
-    "path": "folders/Sprites/level/smollmonster.yy",
+    "name": "Smoll Monster",
+    "path": "folders/Sprites/Level/Smoll Monster.yy",
   },
 }

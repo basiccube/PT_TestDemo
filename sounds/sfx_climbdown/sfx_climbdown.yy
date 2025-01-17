@@ -17,7 +17,7 @@
   "soundFile": "sfx_climbdown.ogg",
   "duration": 0.423628,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

@@ -17,7 +17,7 @@
   "soundFile": "sfx_jump.ogg",
   "duration": 0.226757,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

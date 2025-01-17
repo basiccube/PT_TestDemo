@@ -1,71 +1,73 @@
 function scr_player_highjump()
 {
-	input_get()
-	move = (key_left + key_right)
+	move = (keyLeft.held + keyRight.held)
 	hsp = (move * movespeed)
-	if ((place_meeting((x + 1), y, obj_collisionparent) && xscale == 1) || (place_meeting((x - 1), y, obj_collisionparent) && xscale == -1))
-	    movespeed = 0
+	if (check_solid(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_slope))
+		movespeed = 0
+	
 	if (move == 0)
 	    movespeed = 0
 	if (move != 0 && ((movespeed < 5 && !in_water) || (movespeed < 3 && in_water)))
 	    movespeed += 0.5
-	if (xscale == 1 && move == -1)
-	    movespeed = 0
-	if (xscale == -1 && move == 1)
-	    movespeed = 0
+	if (move == -xscale)
+		movespeed = 0
+	
 	landAnim = true
-	if ((!key_jump2) && jumpstop == 0 && vsp < 0)
+	if (!keyJump.held && !jumpstop && vsp < 0)
 	{
 	    vsp /= 2
-	    jumpstop = 1
+	    jumpstop = true
 	}
 	if (ladderbuffer > 0)
 	    ladderbuffer--
-	if (place_meeting(x, (y - 1), obj_collisionparent) && jumpstop == 0 && jumpAnim == true)
+	if (check_solid(x, y - 1) && !jumpstop && jumpAnim)
 	{
 	    vsp = grav
-	    jumpstop = 1
+	    jumpstop = true
 	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && vsp > 0)
+	if (grounded && vsp > 0)
 	{
-	    if key_attack
+	    if keyDash.held
 	        landAnim = false
 	    state = states.normal
 	    jumpAnim = true
-	    jumpstop = 0
+	    jumpstop = false
 	    image_index = 0
-	    if (!(place_meeting(x, y, obj_water2)))
+		
+	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	    sound_play(sfx_land, true, soundtype.stereo)
 	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && input_buffer_jump < 8 && (!key_down) && vsp > 0)
+	if (grounded && input_buffer_jump < 8 && !keyDown.held && vsp > 0)
 	{
 		vsp = -9
 	    state = states.jump
 	    jumpAnim = true
-	    jumpstop = 0
+	    jumpstop = false
 	    image_index = 0
-	    if (!(place_meeting(x, y, obj_water2)))
+		
+	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
-	if key_jump
+	if keyJump.pressed
 	    input_buffer_jump = 0
-	if (jumpAnim == true)
+	
+	if jumpAnim
 	{
 	    sprite_index = spr_player_Sjumpstart
-	    if (floor(image_index) == 3)
+	    if (floor(image_index) == image_number - 1)
 	        jumpAnim = false
 	}
-	if (jumpAnim == false)
+	else
 	    sprite_index = spr_player_Sjump
+	
 	if (move != 0)
 	    xscale = move
 	if (in_water)
 		image_speed = 0.2
 	else
 		image_speed = 0.35
-	perform_collisions()
 }

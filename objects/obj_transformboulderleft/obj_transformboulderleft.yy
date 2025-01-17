@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "spawner",
-    "path": "folders/Objects/level/spawner.yy",
+    "name": "Spawners",
+    "path": "folders/Objects/Object-created/Spawners.yy",
   },
 }

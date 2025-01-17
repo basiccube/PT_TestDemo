@@ -78,7 +78,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "pineapple",
-    "path": "folders/Sprites/level/collectibles/pizzakin/pineapple.yy",
+    "name": "Pineapple",
+    "path": "folders/Sprites/Level/Toppins/Pineapple.yy",
   },
 }

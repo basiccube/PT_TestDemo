@@ -32,7 +32,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "spawners",
-    "path": "folders/Objects/roomstructure/spawners.yy",
+    "name": "Spawners",
+    "path": "folders/Objects/Level/Spawners.yy",
   },
 }

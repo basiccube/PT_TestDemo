@@ -1,43 +1,29 @@
 function scr_player_normal()
 {
-	input_get()
-	move = (key_left + key_right)
+	move = (keyLeft.held + keyRight.held)
 	hsp = (move * movespeed)
 	mach2 = 0
-	if (key_attack && place_meeting(x, (y + 1), obj_collisionparent) && (!((place_meeting((x + 1), y, obj_collisionparent) && xscale == 1 && (!(place_meeting((x + xscale), y, obj_slopes)))))) && (!((place_meeting((x - 1), y, obj_collisionparent) && xscale == -1 && (!(place_meeting((x + xscale), y, obj_slopes)))))))
+	
+	if (check_solid(x + sign(hsp), y) && move == xscale && !place_meeting(x + xscale, y, obj_slope))
+		movespeed = 0
+	jumpstop = false
+	
+	if (grounded && move == -xscale)
 	{
-	    jumpAnim = true
-	    state = states.mach1
-	    movespeed = 0
-	    image_index = 0
+		machslideAnim = true
+		landAnim = false
+		image_index = 0
+		movespeed = 0
 	}
-	if (place_meeting((x + sign(hsp)), y, obj_collisionparent) && xscale == 1 && move == 1 && (!(place_meeting((x + 1), y, obj_slopes))))
-	    movespeed = 0
-	if (place_meeting((x + sign(hsp)), y, obj_collisionparent) && xscale == -1 && move == -1 && (!(place_meeting((x - 1), y, obj_slopes))))
-	    movespeed = 0
-	jumpstop = 0
-	if (place_meeting(x, (y + 1), obj_collisionparent) && xscale == 1 && move == -1)
-	{
-	    machslideAnim = true
-	    landAnim = false
-	    image_index = 0
-	    movespeed = 0
-	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && xscale == -1 && move == 1)
-	{
-	    machslideAnim = true
-	    landAnim = false
-	    image_index = 0
-	    movespeed = 0
-	}
-	if ((!(place_meeting(x, (y + 1), obj_collisionparent))) && (!key_jump))
+	
+	if (!grounded && !keyJump.pressed)
 	{
 	    jumpAnim = false
 	    state = states.jump
 	    machslideAnim = true
 	    image_index = 0
 	}
-	if (key_jump && place_meeting(x, (y + 1), obj_collisionparent) && key_up && (!key_down) && (!key_attack) && move == 0)
+	if (keyJump.pressed && grounded && keyUp.held && !keyDown.held && !keyDash.held && move == 0)
 	{
 		if (!in_water)
 			vsp = -11
@@ -49,7 +35,7 @@ function scr_player_normal()
 	    jumpAnim = true
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
-	if (key_jump && place_meeting(x, (y + 1), obj_collisionparent) && (!key_down) && sprite_index != spr_player_Sjumpprep && input_buffer_jump >= 8)
+	if (keyJump.pressed && grounded && !keyDown.held && sprite_index != spr_player_Sjumpprep && input_buffer_jump >= 8)
 	{
 		vsp = -9
 	    state = states.jump
@@ -58,20 +44,19 @@ function scr_player_normal()
 	    jumpAnim = true
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
-	if (place_meeting(x, (y + 1), obj_collisionparent) && input_buffer_jump < 8 && (!key_down) && vsp > 0)
+	if (grounded && input_buffer_jump < 8 && !keyDown.held && vsp > 0)
 	{
-	    stompAnim = false
 		vsp = -9
 	    state = states.jump
 	    jumpAnim = true
-	    jumpstop = 0
+		jumpstop = false
 	    image_index = 0
-	    if (!(place_meeting(x, y, obj_water2)))
+	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
 	    freefallstart = 0
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
-	if ((key_down && place_meeting(x, (y + 1), obj_collisionparent)) || place_meeting(x, (y - 3), obj_collisionparent))
+	if ((keyDown.held && grounded) || check_solid(x, y - 3))
 	{
 	    state = states.crouch
 	    machslideAnim = true
@@ -79,6 +64,7 @@ function scr_player_normal()
 	    crouchAnim = true
 	    image_index = 0
 	}
+	
 	if (move != 0)
 	{
 	    if (movespeed < 4 && !in_water)
@@ -94,16 +80,17 @@ function scr_player_normal()
 	    movespeed = 0
 	if ((movespeed > 4 && !in_water) || (movespeed > 3 && in_water))
 	    movespeed -= 0.1
-	if (key_up && move == 0 && sprite_index != spr_player_Sjumpprep)
+	
+	if (keyUp.held && move == 0 && sprite_index != spr_player_Sjumpprep)
 	    image_index = 0
-	if (key_up && move == 0)
+	if (keyUp.held && move == 0)
 	{
 	    landAnim = false
 	    sprite_index = spr_player_Sjumpprep
 	    if (floor(image_index) == 5)
 	        image_speed = 0
 	}
-	if (!((key_up && move == 0)))
+	if !(keyUp.held && move == 0)
 	{
 	    if (machslideAnim == true && landAnim == false)
 	    {
@@ -153,15 +140,15 @@ function scr_player_normal()
 		else
 			image_speed = 0.3
 	}
-	if ((!instance_exists(obj_cloudeffect)) && (!(place_meeting(x, y, obj_water2))) && place_meeting(x, (y + 1), obj_collisionparent) && move != 0 && (floor(image_index) == 4 || floor(image_index) == 10))
-	    instance_create(x, (y + 43), obj_cloudeffect)
-	if (movespeed == 9 && dashdust == 0)
+	
+	if (keyDash.held && grounded && !(check_solid(x + xscale, y) && !place_meeting(x + xscale, y, obj_slope)))
 	{
-	    dashdust = 1
-	    instance_create(x, y, obj_jumpdust)
+	    jumpAnim = true
+	    state = states.mach1
+	    movespeed = 1
+	    image_index = 0
 	}
-	perform_collisions()
-
-
-
+	
+	if (!instance_exists(obj_cloudeffect) && !place_meeting(x, y, obj_water2) && grounded && move != 0 && (floor(image_index) == 4 || floor(image_index) == 10))
+	    instance_create(x, y + 43, obj_cloudeffect)
 }

@@ -17,7 +17,7 @@
   "soundFile": "sfx_superjump.ogg",
   "duration": 0.174558,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

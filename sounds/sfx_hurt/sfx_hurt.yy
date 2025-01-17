@@ -17,7 +17,7 @@
   "soundFile": "sfx_hurt.ogg",
   "duration": 0.416735,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

@@ -17,7 +17,7 @@
   "soundFile": "sfx_enemyhit.ogg",
   "duration": 0.209116,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

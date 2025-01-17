@@ -1,19 +1,16 @@
 image_speed = 0.35
 if (bump == 0)
 {
-    if (charging == 1 && place_meeting((x - 64), (y + 1), obj_wall))
+    if (charging == 1 && place_meeting(x - 64, y + 1, obj_solid))
         hsp = -1.5
-    else if place_meeting((x + 64), (y + 1), obj_wall)
+    else if place_meeting(x + 64, y + 1, obj_solid)
         hsp = 0
 }
 if (falling == 1)
 {
     vsp = 10
-    if place_meeting(x, (y + 1), obj_wall)
+    if grounded
         instance_destroy()
-}
-if (bump == 1)
-{
 }
 if place_meeting((x - 1), y, obj_player)
 {
@@ -26,5 +23,14 @@ if place_meeting((x - 1), y, obj_player)
         alarm[0] = 25
     }
 }
+
+with (obj_boulder)
+{
+	if place_meeting(x + hsp, y, other)
+		instance_destroy(other.id)
+	if place_meeting(x + sign(hsp), y, other)
+		instance_destroy(other.id)
+}
+
 perform_collisions()
 

@@ -2,27 +2,23 @@ depth = -6
 grav = 0.5
 hsp = 0
 vsp = 0
+movespeed = 0
+grounded = false
+state = states.normal
 xscale = 1
 yscale = 1
-movespeed = 0
-jumpstop = 0
-start_running = 1
-state = states.normal
-turn = 0
+
+jumpstop = false
 jumpAnim = true
-dashAnim = true
 landAnim = false
 machslideAnim = true
-moveAnim = true
-stopAnim = true
-crouchslideAnim = true
 crouchAnim = true
 machhitAnim = false
-stompAnim = false
+
 inv_frames = 0
-turning = 0
 hurtbounce = 0
-hurted = 0
+hurted = false
+
 mach2 = 0
 input_buffer_jump = 8
 targetRoom = room
@@ -30,27 +26,26 @@ targetDoor = "A"
 hallway = false
 hallwaydirection = 0
 flash = 0
-global.key_inv = 0
-global.shroomfollow = 0
-global.cheesefollow = 0
-global.tomatofollow = 0
-global.sausagefollow = 0
-global.pineapplefollow = 0
-global.keyget = 0
+
 global.collect = 0
+global.key = false
+global.shroomfollow = false
+global.cheesefollow = false
+global.tomatofollow = false
+global.sausagefollow = false
+global.pineapplefollow = false
+
 audio_falloff_set_model(audio_falloff_exponent_distance_scaled)
 audio_listener_orientation(0, -1, 0, 0, 0, -1)
 playeremitter = audio_emitter_create()
 audio_emitter_falloff(playeremitter, 240, 820, 1)
+
 combo = 0
 in_water = 0
-key_particles = 0
+key_particles = false
 barrel = 0
-bounce = 0
 attacking = 0
 punch = 0
 instakillmove = 0
 ladderbuffer = 0
-dashdust = 0
-hurtsound = 0
 momemtum = 0

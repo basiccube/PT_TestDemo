@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "blocks",
-    "path": "folders/Objects/roomstructure/blocks.yy",
+    "name": "Blocks",
+    "path": "folders/Objects/Level/Blocks.yy",
   },
 }

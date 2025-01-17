@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "hazards",
-    "path": "folders/Objects/roomstructure/hazards.yy",
+    "name": "Hazards",
+    "path": "folders/Objects/Level/Hazards.yy",
   },
 }

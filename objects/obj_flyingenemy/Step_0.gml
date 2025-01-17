@@ -10,5 +10,5 @@ if (bounce == 1)
     if (floor(image_index) == 12)
         bounce = 0
 }
-perform_solid_collisions()
+perform_collisions()
 

@@ -10,7 +10,7 @@ else if (fadein == 1)
     fadealpha -= 0.1
 with (obj_player)
 {
-    if (other.fadein == 1 && place_meeting(x, y, obj_door))
+    if (other.fadein == 1 && (place_meeting(x, y, obj_door) || place_meeting(x, y, obj_doorblocked)))
     {
         state = states.comingoutdoor
         image_index = 0

@@ -17,7 +17,7 @@
   "soundFile": "sfx_bump.ogg",
   "duration": 0.150249,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

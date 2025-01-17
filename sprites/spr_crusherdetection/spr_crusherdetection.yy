@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "crusher",
-    "path": "folders/Sprites/level/crusher.yy",
+    "name": "Crusher",
+    "path": "folders/Sprites/Level/Crusher.yy",
   },
 }

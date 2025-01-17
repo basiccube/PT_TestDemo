@@ -1,15 +1,15 @@
-/// @params x
-/// @params y
-/// @params sprite_index
-/// @params image_index
-function create_afterimage(argument0, argument1, argument2, argument3)
+///@param x
+///@param y
+///@param sprite
+///@param index
+function create_afterimage(_x, _y, _sprite, _index)
 {
 	var q = 
 	{
-		x: argument0,
-		y: argument1,
-		sprite_index: argument2,
-		image_index: argument3,
+		x: _x,
+		y: _y,
+		sprite_index: _sprite,
+		image_index: _index,
 		alarm: [15, 3, -1],
 		image_blend: choose(make_colour_rgb(255, 0, 0), make_colour_rgb(0, 255, 0)),
 		image_xscale: 1,
@@ -22,18 +22,18 @@ function create_afterimage(argument0, argument1, argument2, argument3)
 	return q;
 }
 
-/// @params x
-/// @params y
-/// @params sprite_index
-/// @params image_index
-function create_mach2effect(argument0, argument1, argument2, argument3)
+///@param x
+///@param y
+///@param sprite
+///@param index
+function create_mach2effect(_x, _y, _sprite, _index)
 {
 	q = 
 	{
-		x: argument0,
-		y: argument1,
-		sprite_index: argument2,
-		image_index: argument3,
+		x: _x,
+		y: _y,
+		sprite_index: _sprite,
+		image_index: _index,
 		alarm: [5, -1, -1],
 		image_blend: c_white,
 		image_xscale: obj_player.xscale,

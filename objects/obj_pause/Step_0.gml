@@ -1,27 +1,33 @@
 input_get()
 image_speed = 0.35
-if key_start
+
+if keyStart.pressed
 {
-    if (!pause)
+    if !pause
     {
-        pause = 1
+        pause = true
         instance_deactivate_all(true)
     }
     else
     {
-        pause = 0
+        pause = false
 		selection = 0
         instance_activate_all()
     }
 }
-if (pause == 1)
+
+if pause
 {
-    if (key_right2 && selection == 0)
-		selection = 1
-    if ((-key_left2) && selection == 1)
-		selection = 0
-    if (key_jump && selection == 0)
-        game_restart()
-    if (key_jump && selection == 1)
-        game_end()
+	move = (keyLeft.pressed + keyRight.pressed)
+	if (move != 0)
+		selection += move
+	selection = clamp(selection, 0, 1)
+	
+	if keyJump.pressed
+	{
+		if (selection == 0)
+			game_restart()
+		else if (selection == 1)
+			game_end()
+	}
 }

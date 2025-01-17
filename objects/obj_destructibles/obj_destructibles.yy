@@ -9,8 +9,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_enemiesbumpable",
-    "path": "objects/obj_enemiesbumpable/obj_enemiesbumpable.yy",
+    "name": "obj_solid",
+    "path": "objects/obj_solid/obj_solid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -28,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "parents",
-    "path": "folders/Objects/level/parents.yy",
+    "name": "Parents",
+    "path": "folders/Objects/Parents.yy",
   },
 }

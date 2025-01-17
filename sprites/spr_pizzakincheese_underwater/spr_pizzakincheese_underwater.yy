@@ -78,7 +78,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "cheese",
-    "path": "folders/Sprites/level/collectibles/pizzakin/cheese.yy",
+    "name": "Cheese",
+    "path": "folders/Sprites/Level/Toppins/Cheese.yy",
   },
 }

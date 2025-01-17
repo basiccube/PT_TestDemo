@@ -17,7 +17,7 @@
   "soundFile": "sfx_collect.ogg",
   "duration": 0.359093,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

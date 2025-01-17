@@ -7,10 +7,8 @@ if (attack == 0)
 {
     movespeed = 2
     hsp = (image_xscale * movespeed)
-    if (place_meeting((x + 1), y, obj_wall) && image_xscale == 1)
-        image_xscale = -1
-    if (place_meeting((x - 1), y, obj_wall) && image_xscale == -1)
-        image_xscale = 1
+    if check_solid(x + image_xscale, y)
+        image_xscale *= -1
     sprite_index = spr_piraneapple
 }
 if (attack == 1)

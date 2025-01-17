@@ -1,6 +1,7 @@
 hsp = 0
 vsp = 0
 grav = 0.23
+grounded = false
 movespeed = 1.5
 roam = 0
 bounce = 0

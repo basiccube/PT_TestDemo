@@ -2,17 +2,18 @@ with (obj_player)
 {
     if (y < other.y && attacking == 0 && (state == states.jump || state == states.highjump))
     {
-        if (other.bounce == 0 && key_jump2 && vsp > 0)
+        if (other.bounce == 0 && keyJump.held && vsp > 0)
         {
             sound_play(sfx_superjump, true, soundtype.stereo)
-            roam = 0
+            other.roam = 0
             other.bounce = 1
             other.image_index = 0
+			other.alarm[0] = 150
+			
             sprite_index = spr_player_Sjump
             image_index = 0
-            stompAnim = true
+            jumpstop = true
             vsp = -11
-            other.alarm[0] = 150
             state = states.jump
         }
     }

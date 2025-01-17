@@ -17,7 +17,7 @@
   "soundFile": "sfx_climb.ogg",
   "duration": 0.332018,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

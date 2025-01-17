@@ -1,4 +1,0 @@
-Almost all of these objects here are intended to be created from within code,
-so you really shouldn't place them in a room.
-
-Some are simply just unused or are used for some other purpose.

@@ -1,42 +1,35 @@
 function scr_player_ladder()
 {
-	input_get()
 	jumpAnim = true
-	dashAnim = true
 	landAnim = false
 	machslideAnim = true
-	moveAnim = true
-	stopAnim = true
-	crouchslideAnim = true
 	crouchAnim = false
 	machhitAnim = false
-	turning = 0
-	jumpstop = 0
+	jumpstop = false
+	mach2 = 0
+	
 	movespeed = 0
 	hsp = 0
-	if key_up
+	if (keyUp.held && !keyDown.held)
 	{
 	    vsp = -2
 	    image_speed = 0.35
+		sprite_index = spr_player_laddermove
+		sound_play(sfx_climb, true, soundtype.player)
 	}
-	else if key_down
+	else if (keyDown.held && !keyUp.held)
 	{
 	    vsp = 6
 	    image_speed = -0.35
+		sprite_index = spr_player_ladderdown
 	}
 	else
+	{
 	    vsp = 0
-	mach2 = 0
-	jumpAnim = true
-	dashAnim = true
-	landAnim = false
-	machslideAnim = true
-	moveAnim = true
-	stopAnim = true
-	crouchslideAnim = true
-	crouchAnim = true
-	machhitAnim = false
-	if (!(place_meeting(x, y, obj_ladder)))
+		sprite_index = spr_player_ladder
+	}
+	
+	if !place_meeting(x, y, obj_ladder)
 	{
 	    landAnim = false
 	    jumpAnim = false
@@ -45,7 +38,7 @@ function scr_player_ladder()
 	    image_index = 0
 	    vsp = -8
 	}
-	if key_jump
+	if keyJump.pressed
 	{
 	    ladderbuffer = 20
 	    jumpAnim = true
@@ -54,19 +47,10 @@ function scr_player_ladder()
 	    vsp = -9
 	    image_index = 0
 	}
-	if (key_down && place_meeting(x, (y + 1), obj_collisionparent) && (!(place_meeting(x, y, obj_onewaywall))))
+	
+	if (keyDown.held && grounded && !place_meeting(x, y, obj_platform))
 	{
 	    state = states.normal
 	    image_index = 0
 	}
-	if ((!key_up) && (!key_down))
-	    sprite_index = spr_player_ladder
-	else if (key_down && (!key_up))
-	    sprite_index = spr_player_ladderdown
-	else if ((!key_down) && key_up)
-	{
-	    sprite_index = spr_player_laddermove
-	    sound_play(sfx_climb, true, soundtype.player)
-	}
-	perform_collisions()
 }

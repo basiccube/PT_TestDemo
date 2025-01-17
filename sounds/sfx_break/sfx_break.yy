@@ -17,7 +17,7 @@
   "soundFile": "sfx_break.ogg",
   "duration": 0.446757,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

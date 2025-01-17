@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "visuals",
-    "path": "folders/Objects/visuals.yy",
+    "name": "Visuals",
+    "path": "folders/Objects/Visuals.yy",
   },
 }

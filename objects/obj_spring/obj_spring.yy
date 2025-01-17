@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_collisionparent",
-    "path": "objects/obj_collisionparent/obj_collisionparent.yy",
+    "name": "obj_solid",
+    "path": "objects/obj_solid/obj_solid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "gizmos",
-    "path": "folders/Objects/roomstructure/gizmos.yy",
+    "name": "Gizmos",
+    "path": "folders/Objects/Level/Gizmos.yy",
   },
 }

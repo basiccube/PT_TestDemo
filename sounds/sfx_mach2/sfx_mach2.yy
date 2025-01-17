@@ -17,7 +17,7 @@
   "soundFile": "sfx_mach2.ogg",
   "duration": 0.120136,
   "parent": {
-    "name": "sfx",
-    "path": "folders/Sounds/sfx.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

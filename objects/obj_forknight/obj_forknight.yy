@@ -10,8 +10,8 @@
   "visible": true,
   "managed": true,
   "spriteMaskId": {
-    "name": "obj_goblinmask",
-    "path": "sprites/obj_goblinmask/obj_goblinmask.yy",
+    "name": "spr_goblinmask",
+    "path": "sprites/spr_goblinmask/spr_goblinmask.yy",
   },
   "persistent": false,
   "parentObjectId": {
@@ -42,7 +42,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "enemies",
-    "path": "folders/Objects/baddies/enemies.yy",
+    "name": "Enemies",
+    "path": "folders/Objects/Level/Enemies.yy",
   },
 }

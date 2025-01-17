@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "grind",
-    "path": "folders/Sprites/level/grind.yy",
+    "name": "Grind Rail",
+    "path": "folders/Sprites/Level/Grind Rail.yy",
   },
 }

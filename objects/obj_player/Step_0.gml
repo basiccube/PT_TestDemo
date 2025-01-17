@@ -1,3 +1,4 @@
+input_get()
 switch state
 {
     case states.normal:
@@ -110,11 +111,10 @@ switch state
 audio_emitter_position(playeremitter, x, y, 0)
 if (input_buffer_jump < 8)
     input_buffer_jump++
-if (key_particles == 1 && global.key_inv == 1)
-    instance_create(random_range((x + 25), (x - 25)), random_range((y + 35), (y - 25)), obj_keyeffect)
-if (state != states.jump)
-    turn = 0
-if (inv_frames == 0 && hurted == 0 && state != states.door && state != states.comingoutdoor)
+if (key_particles && global.key)
+    instance_create(x + random_range(-25, 25), y + random_range(-35, 25), obj_keyeffect)
+
+if (inv_frames == 0 && !hurted && state != states.door && state != states.comingoutdoor)
     image_alpha = 1
 if (state == states.mach2 || state == states.punch || state == states.freefall || state == states.barrelroll)
     attacking = 1
@@ -126,8 +126,6 @@ else
     instakillmove = 0
 if (flash == 1 && alarm[0] <= 0)
     alarm[0] = (0.15 * room_speed)
-if (state != states.normal)
-    dashdust = 0
 if ((place_meeting(x, y, obj_water) || place_meeting(x, y, obj_water2) || place_meeting(x, y, obj_current) || place_meeting(x, y, obj_current2)) && state != states.barrelfloat)
 	in_water = true
 else
@@ -140,16 +138,19 @@ else
 	grav = 0.5
 if (state != states.mach1 && state != states.jump)
     momemtum = 0
-if (movespeed < 8)
-    dashdust = 0
 if (state != states.jump)
     ladderbuffer = 0
-if (state != states.jump)
-    stompAnim = false
+
 if (state != states.bump && state != states.crouch && state != states.hurt && state != states.crouchslide && state != states.crouchjump && state != states.barrelroll && state != states.barrelslipnslide)
     mask_index = spr_player_mask
 else
     mask_index = spr_crouchmask
-if (state != states.hurt)
-    hurtsound = 0
 
+if (state != states.door)
+{
+	var flag = collisionflags.none
+	if (state == states.boulder)
+		flag = collisionflags.ignoreplatforms
+	
+	perform_collisions_player(flag)
+}

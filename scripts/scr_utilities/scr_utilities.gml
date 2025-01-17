@@ -1,27 +1,28 @@
-/// @description Creates an instance of a given object at a given position.
-/// @param x The x position the object will be created at.
-/// @param y The y position the object will be created at.
-/// @param obj The object to create an instance of.
-function instance_create(argument0, argument1, argument2)
+///@param x
+///@param y
+///@param obj
+function instance_create(_x, _y, _obj)
 {
-	var inst = instance_create_depth(argument0, argument1, 0, argument2)
+	var inst = instance_create_depth(_x, _y, 0, _obj)
 	with (inst)
 	{
-		if (instance_exists(obj_light))
+		if instance_exists(obj_light)
 			image_blend = c_black
 	}
-	return inst
+	
+	return inst;
 }
 
-/// @param x
-/// @param y
-/// @param camera
-/// @param xpadding
-function point_in_camera(argument0, argument1, argument2, argument3 = 0)
+///@param x
+///@param y
+///@param camera
+///@param xpadding
+function point_in_camera(_x, _y, _camera, _xpad = 0)
 {
-	var cam_x = camera_get_view_x(argument2)
-	var cam_y = camera_get_view_y(argument2)
-	var cam_w = camera_get_view_width(argument2)
-	var cam_h = camera_get_view_height(argument2)
-	return point_in_rectangle(argument0, argument1, cam_x - argument3, cam_y, (cam_x + cam_w) + argument3, (cam_y + cam_h));
+	var cam_x = camera_get_view_x(_camera)
+	var cam_y = camera_get_view_y(_camera)
+	var cam_w = camera_get_view_width(_camera)
+	var cam_h = camera_get_view_height(_camera)
+	
+	return point_in_rectangle(_x, _y, cam_x - _xpad, cam_y, cam_x + cam_w + _xpad, cam_y + cam_h);
 }
