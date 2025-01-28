@@ -9,7 +9,7 @@ function scr_player_punch()
 	mach2 = 0
 	jumpAnim = true
 	landAnim = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = true
 	
 	if (check_solid(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_slope))

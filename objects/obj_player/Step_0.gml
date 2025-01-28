@@ -79,26 +79,14 @@ switch state
     case states.door:
         scr_player_door()
         break
-    case states.barrelnormal:
-        scr_player_barrelnormal()
+    case states.barrel:
+        scr_player_barrel()
         break
-    case states.barrelfall:
-        scr_player_barrelfall()
-        break
-    case states.barrelmach1:
-        scr_player_barrelmach1()
-        break
-    case states.barrelmach2:
-        scr_player_barrelmach2()
+    case states.barrelbump:
+        scr_player_barrelbump()
         break
     case states.barrelfloat:
         scr_player_barrelfloat()
-        break
-    case states.barrelcrouch:
-        scr_player_barrelcrouch()
-        break
-    case states.barrelslipnslide:
-        scr_player_barrelslipnslide()
         break
     case states.barrelroll:
         scr_player_barrelroll()
@@ -116,6 +104,7 @@ if (key_particles && global.key)
 
 if (inv_frames == 0 && !hurted && state != states.door && state != states.comingoutdoor)
     image_alpha = 1
+
 if (state == states.mach2 || state == states.punch || state == states.freefall || state == states.barrelroll)
     attacking = 1
 else
@@ -124,8 +113,10 @@ if (state == states.freefall)
     instakillmove = 1
 else
     instakillmove = 0
+
 if (flash == 1 && alarm[0] <= 0)
     alarm[0] = (0.15 * room_speed)
+
 if ((place_meeting(x, y, obj_water) || place_meeting(x, y, obj_water2) || place_meeting(x, y, obj_current) || place_meeting(x, y, obj_current2)) && state != states.barrelfloat)
 	in_water = true
 else
@@ -136,12 +127,18 @@ if (in_water)
 	grav = 0.35
 else
 	grav = 0.5
+	
+if (state == states.barrel || state == states.barrelbump || state == states.barrelfloat || state == states.barrelroll)
+	barrel = true
+else
+	barrel = false
+
 if (state != states.mach1 && state != states.jump)
     momemtum = 0
 if (state != states.jump)
     ladderbuffer = 0
 
-if (state != states.bump && state != states.crouch && state != states.hurt && state != states.crouchslide && state != states.crouchjump && state != states.barrelroll && state != states.barrelslipnslide)
+if (state != states.bump && state != states.crouch && state != states.hurt && state != states.crouchslide && state != states.crouchjump && sprite_index != spr_player_barrelslipnslide && sprite_index != spr_player_barrelroll)
     mask_index = spr_player_mask
 else
     mask_index = spr_crouchmask

@@ -8,7 +8,7 @@ function scr_player_hurt()
 	else
 	    landAnim = true
 	jumpstop = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = false
 	machhitAnim = false
 	movespeed = 0

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_player_barrelfall",
+  "name": "scr_player_barrel",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

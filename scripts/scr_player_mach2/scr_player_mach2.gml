@@ -1,7 +1,7 @@
 function scr_player_mach2()
 {
 	hsp = (xscale * movespeed)
-	machslideAnim = true
+	machslideAnim = false
 	if (!in_water)
 		movespeed = 10
 	else

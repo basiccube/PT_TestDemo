@@ -2,11 +2,18 @@ if (vsp < 12)
     vsp += grav
 if (place_meeting(x, (y - 1), obj_player) && obj_player.x >= (x - 8) && obj_player.x <= (x + 8) && (obj_player.state == states.normal || obj_player.state == states.crouch || obj_player.state == states.mach1))
 {
-    obj_player.state = states.barrelcrouch
-    obj_player.image_index = 0
-    obj_player.barrel = 1
-    obj_player.vsp = 10
-    instance_destroy()
+	with (obj_player)
+	{
+		if (state != states.hurt && !barrel)
+		{
+			state = states.barrel
+			vsp = 10
+			
+			sprite_index = spr_player_barrelidle
+			image_index = 0
+			instance_destroy(other.id)
+		}
+	}
 }
 if grounded
 {

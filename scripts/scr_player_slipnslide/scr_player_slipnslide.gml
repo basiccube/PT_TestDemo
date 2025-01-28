@@ -3,7 +3,7 @@ function scr_player_slipnslide()
 	mach2 = 0
 	jumpAnim = true
 	landAnim = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = false
 	machhitAnim = false
 	

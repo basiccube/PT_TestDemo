@@ -7,7 +7,7 @@ function scr_player_tackle()
 	    hsp = 0
 	jumpAnim = true
 	landAnim = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = true
 	
 	if (floor(image_index) == image_number - 1)

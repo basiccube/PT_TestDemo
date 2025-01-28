@@ -7,7 +7,7 @@ function scr_player_highjump()
 	
 	if (move == 0)
 	    movespeed = 0
-	if (move != 0 && ((movespeed < 5 && !in_water) || (movespeed < 3 && in_water)))
+	if (move != 0 && ((movespeed < 4 && !in_water) || (movespeed < 2 && in_water)))
 	    movespeed += 0.5
 	if (move == -xscale)
 		movespeed = 0

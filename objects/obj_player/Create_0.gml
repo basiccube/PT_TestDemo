@@ -11,7 +11,7 @@ yscale = 1
 jumpstop = false
 jumpAnim = true
 landAnim = false
-machslideAnim = true
+machslideAnim = false
 crouchAnim = true
 machhitAnim = false
 
@@ -43,7 +43,7 @@ audio_emitter_falloff(playeremitter, 240, 820, 1)
 combo = 0
 in_water = 0
 key_particles = false
-barrel = 0
+barrel = false
 attacking = 0
 punch = 0
 instakillmove = 0

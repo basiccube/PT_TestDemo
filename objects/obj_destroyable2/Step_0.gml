@@ -18,7 +18,7 @@ if ((place_meeting((x - 1), y, obj_player)) && obj_player.xscale == 1 && obj_pla
 }
 if ((place_meeting((x - 1), y, obj_chasingmonster) || place_meeting((x + 1), y, obj_chasingmonster)))
     instance_destroy()
-if ((place_meeting((x + 5), y, obj_player) || place_meeting((x - 5), y, obj_player)) && (obj_player.state == states.barrelroll || obj_player.state == states.barrelslipnslide || obj_player.state == states.slipnslide))
+if ((place_meeting((x + 5), y, obj_player) || place_meeting((x - 5), y, obj_player)) && (obj_player.sprite_index == spr_player_barrelslipnslide || obj_player.sprite_index == spr_player_barrelroll || obj_player.state == states.slipnslide))
     instance_destroy()
 if (place_meeting(x, (y - 1), obj_player) && obj_player.vsp > 0 && obj_player.state == states.freefall)
     instance_destroy()

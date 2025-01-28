@@ -1,4 +1,4 @@
-if (place_meeting(x, y, obj_player) && obj_player.state == states.normal && obj_player.keyUp.held && global.key)
+if (place_meeting(x, y, obj_player) && obj_player.grounded && obj_player.state == states.normal && obj_player.keyUp.held && global.key)
 {
     sound_play(sfx_land, false, soundtype.stereo)
     obj_player.state = states.victory

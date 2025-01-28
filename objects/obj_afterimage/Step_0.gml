@@ -11,7 +11,7 @@ for (var i = 0; i < ds_list_size(global.afterimage_list); i++)
 		switch identifier
 		{
 			case afterimage.mach2effect:
-				if (obj_player.state != states.mach2 && obj_player.state != states.barrelmach2 && obj_player.state != states.barrelroll)
+				if (obj_player.state != states.mach2 && obj_player.state != states.barrelroll)
 					alarm[0] = 0
 				visible = obj_player.visible
 				break

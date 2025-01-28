@@ -1,12 +1,9 @@
-function scr_player_barrelfall()
+function scr_player_barrelbump()
 {
-	mask_index = spr_player_mask
-	if place_meeting(x, y, obj_water2)
-	    vsp -= 1
-	
 	if grounded
 	{
-	    state = states.barrelcrouch
+	    state = states.barrel
+		sprite_index = spr_player_barrelidle
 	    image_index = 0
 	}
 	
@@ -18,4 +15,7 @@ function scr_player_barrelfall()
 	
 	sprite_index = spr_player_barrelfall
 	image_speed = 0.35
+	
+	if place_meeting(x, y, obj_water2)
+	    vsp -= 1
 }

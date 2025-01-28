@@ -16,25 +16,25 @@ function scr_player_machslide()
 	    movespeed = 4
 	    mach2 = 0
 	    image_index = 0
-	    machslideAnim = false
+	    machslideAnim = true
 	}
 	
 	if (check_solid(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_slope))
 	    player_bump()
 	
-	if machslideAnim
+	if !machslideAnim
 	{
 		if machhitAnim
 		{
 			sprite_index = spr_player_crouchslidestart
 			if (floor(image_index) == image_number - 1)
-				machslideAnim = false
+				machslideAnim = true
 		}
 		else
 		{
 			sprite_index = spr_player_machslidestart
 			if (floor(image_index) == image_number - 1)
-				machslideAnim = false
+				machslideAnim = true
 		}
 	}
 	else

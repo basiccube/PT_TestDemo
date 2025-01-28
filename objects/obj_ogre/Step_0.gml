@@ -14,7 +14,7 @@ if (falling == 1)
 }
 if place_meeting((x - 1), y, obj_player)
 {
-    if (obj_player.mach2 >= 35 || obj_player.state == states.freefall || obj_player.state == states.punch || obj_player.state == states.barrelroll)
+    if (obj_player.mach2 >= 35 || obj_player.state == states.freefall || obj_player.state == states.punch || obj_player.sprite_index == spr_player_barrelroll)
     {
         obj_player.state = states.tackle
         obj_player.image_index = 0

@@ -6,10 +6,13 @@ with (obj_player)
         if (movespeed < 8)
             movespeed = 8
     }
-    if (state == states.barrelmach1 || state == states.barrelmach2)
+    else if (sprite_index == spr_player_barrelmach)
     {
+		other.drop = true
+		sprite_index = spr_player_barrelslipnslide
         image_index = 0
-        state = states.barrelslipnslide
+		state = states.barrelroll
+        
         if (movespeed < 8)
             movespeed = 8
     }

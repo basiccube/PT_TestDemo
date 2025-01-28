@@ -8,7 +8,7 @@ function scr_player_keyget()
 	mach2 = 0
 	jumpAnim = true
 	landAnim = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = true
 	machhitAnim = false
 	sound_play(sfx_keyobtained, true)

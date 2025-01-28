@@ -1,6 +1,5 @@
 function scr_player_barrelfloat()
 {
-	mask_index = spr_player_mask
 	move = (keyLeft.held + keyRight.held)
 	hsp = (move * movespeed)
 	vsp = 0
@@ -9,14 +8,16 @@ function scr_player_barrelfloat()
 	{
 	    jumpstop = true
 	    jumpAnim = true
+		landAnim = false
+		
 	    state = states.jump
-	    landAnim = false
 	    vsp = -9
 		
 	    with (instance_create(x, y + 16, obj_barrelfloat))
 	        image_xscale = other.image_xscale
+		
+		sprite_index = spr_player_jump
 	    image_index = 0
-	    barrel = 0
 	}
 	
 	movespeed = 2.5

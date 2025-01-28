@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if (state == states.normal && keyUp.held && y == other.y + 50)
+    if (grounded && state == states.normal && keyUp.held)
     {
         targetDoor = other.targetDoor
         targetRoom = other.targetRoom

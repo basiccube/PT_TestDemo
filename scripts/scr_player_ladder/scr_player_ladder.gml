@@ -2,7 +2,7 @@ function scr_player_ladder()
 {
 	jumpAnim = true
 	landAnim = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = false
 	machhitAnim = false
 	jumpstop = false
@@ -34,7 +34,7 @@ function scr_player_ladder()
 	    landAnim = false
 	    jumpAnim = false
 	    state = states.normal
-	    machslideAnim = true
+	    machslideAnim = false
 	    image_index = 0
 	    vsp = -8
 	}
@@ -43,7 +43,7 @@ function scr_player_ladder()
 	    ladderbuffer = 20
 	    jumpAnim = true
 	    state = states.jump
-	    machslideAnim = true
+	    machslideAnim = false
 	    vsp = -9
 	    image_index = 0
 	}

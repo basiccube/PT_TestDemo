@@ -48,7 +48,7 @@ function scr_player_mach1()
 	    state = states.normal
 	    image_index = 0
 	    mach2 = 0
-	    machslideAnim = true
+	    machslideAnim = false
 	}
 	if keyDown.held
 	{

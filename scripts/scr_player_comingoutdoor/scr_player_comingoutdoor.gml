@@ -3,7 +3,7 @@ function scr_player_comingoutdoor()
 	mach2 = 0
 	jumpAnim = true
 	landAnim = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = true
 	machhitAnim = false
 	hsp = 0

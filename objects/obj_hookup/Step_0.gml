@@ -9,7 +9,7 @@ if (hooked == 1 && drop == 0)
         {
             jumpAnim = false
             state = states.jump
-            machslideAnim = true
+            machslideAnim = false
             image_index = 0
             vsp = 1
         }

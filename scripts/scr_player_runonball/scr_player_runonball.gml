@@ -19,7 +19,7 @@ function scr_player_runonball()
 	    vsp = -7
 	    state = states.jump
 	    image_index = 0
-	    machslideAnim = true
+	    machslideAnim = false
 	    jumpAnim = true
 	    sound_play(sfx_jump, true, soundtype.player)
 	}

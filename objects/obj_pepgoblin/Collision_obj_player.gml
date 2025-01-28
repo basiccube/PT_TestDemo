@@ -86,7 +86,8 @@ if (obj_player.attacking == 1)
         else
             image_xscale = other.image_xscale
         instance_create(x, y, obj_bangeffect)
-        hsp = obj_player.xscale * 15
+        if (x != other.x)
+            hsp = sign(x - obj_player.x) * 15
         vsp = -10
     }
     sound_play(sfx_enemyhit, false, soundtype.stereo)

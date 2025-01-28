@@ -10,7 +10,7 @@ function scr_player_normal()
 	
 	if (grounded && move == -xscale)
 	{
-		machslideAnim = true
+		machslideAnim = false
 		landAnim = false
 		image_index = 0
 		movespeed = 0
@@ -20,7 +20,7 @@ function scr_player_normal()
 	{
 	    jumpAnim = false
 	    state = states.jump
-	    machslideAnim = true
+	    machslideAnim = false
 	    image_index = 0
 	}
 	if (keyJump.pressed && grounded && keyUp.held && !keyDown.held && !keyDash.held && move == 0)
@@ -31,7 +31,7 @@ function scr_player_normal()
 			vsp = -10
 	    state = states.highjump
 	    image_index = 0
-	    machslideAnim = true
+	    machslideAnim = false
 	    jumpAnim = true
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
@@ -40,7 +40,7 @@ function scr_player_normal()
 		vsp = -9
 	    state = states.jump
 	    image_index = 0
-	    machslideAnim = true
+	    machslideAnim = false
 	    jumpAnim = true
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
@@ -56,10 +56,11 @@ function scr_player_normal()
 	    freefallstart = 0
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
+	
 	if ((keyDown.held && grounded) || check_solid(x, y - 3))
 	{
 	    state = states.crouch
-	    machslideAnim = true
+	    machslideAnim = false
 	    landAnim = false
 	    crouchAnim = true
 	    image_index = 0
@@ -81,42 +82,44 @@ function scr_player_normal()
 	if ((movespeed > 4 && !in_water) || (movespeed > 3 && in_water))
 	    movespeed -= 0.1
 	
-	if (keyUp.held && move == 0 && sprite_index != spr_player_Sjumpprep)
-	    image_index = 0
 	if (keyUp.held && move == 0)
 	{
+		if (sprite_index != spr_player_Sjumpprep)
+			image_index = 0
+		
 	    landAnim = false
 	    sprite_index = spr_player_Sjumpprep
-	    if (floor(image_index) == 5)
+	    if (floor(image_index) == image_number - 1)
 	        image_speed = 0
 	}
+	
 	if !(keyUp.held && move == 0)
 	{
-	    if (machslideAnim == true && landAnim == false)
+	    if (!machslideAnim && !landAnim)
 	    {
 	        if (move == 0)
 	            sprite_index = spr_player_idle
 	        if (move != 0)
 	        {
-	            machslideAnim = true
+	            machslideAnim = false
 	            sprite_index = spr_player_move
 	        }
 	        if (move != 0)
 	            xscale = move
 	    }
-	    if (landAnim == true)
+	    if landAnim
 	    {
 	        if (move == 0)
 	        {
 	            movespeed = 0
 	            sprite_index = spr_player_land
-	            if (floor(image_index) == 5)
+	            if (floor(image_index) == image_number - 1)
 	                landAnim = false
 	        }
 	        if (move != 0)
 	        {
 	            sprite_index = spr_player_land2
-	            if (floor(image_index) == 4)
+	            if (floor(image_index) == image_number - 1)
 	            {
 	                landAnim = false
 	                sprite_index = spr_player_move
@@ -124,17 +127,19 @@ function scr_player_normal()
 	            }
 	        }
 	    }
-	    if (machslideAnim == false && machhitAnim == false)
+	    if (machslideAnim && !machhitAnim)
 	    {
 	        sprite_index = spr_player_machslideend
-	        if (floor(image_index) == 5)
-	            machslideAnim = true
+	        if (floor(image_index) == image_number - 1)
+	            machslideAnim = false
 	    }
-	    if (machhitAnim == true)
+		
+	    if machhitAnim
 	    {
 	        machhitAnim = false
-	        machslideAnim = true
+	        machslideAnim = false
 	    }
+		
 		if (in_water)
 			image_speed = 0.2
 		else

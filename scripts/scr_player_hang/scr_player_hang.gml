@@ -4,7 +4,7 @@ function scr_player_hang()
 	vsp = 0
 	jumpAnim = true
 	landAnim = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = true
 	machhitAnim = false
 	image_speed = 0.35

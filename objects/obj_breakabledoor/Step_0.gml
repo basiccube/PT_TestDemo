@@ -16,7 +16,7 @@ if ((place_meeting((x + 5), y, obj_player) || place_meeting((x - 5), y, obj_play
     instance_destroy()
     sound_play(sfx_break, false, soundtype.stereo)
 }
-if ((place_meeting((x + 5), y, obj_player) || place_meeting((x - 5), y, obj_player)) && (obj_player.state == states.barrelroll || obj_player.state == states.barrelslipnslide))
+if ((place_meeting((x + 5), y, obj_player) || place_meeting((x - 5), y, obj_player)) && (obj_player.sprite_index == spr_player_barrelslipnslide || obj_player.sprite_index == spr_player_barrelroll))
 {
     instance_destroy()
     instance_create((x + 16), (y + 50), obj_wooddebris)

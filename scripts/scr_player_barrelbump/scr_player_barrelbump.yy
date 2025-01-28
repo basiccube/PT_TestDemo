@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_player_barrelmach1",
+  "name": "scr_player_barrelbump",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

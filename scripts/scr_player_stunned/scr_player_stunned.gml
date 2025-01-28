@@ -9,7 +9,7 @@ function scr_player_stunned()
 	else
 	    landAnim = true
 	jumpstop = false
-	machslideAnim = true
+	machslideAnim = false
 	crouchAnim = false
 	machhitAnim = false
 	movespeed = 0
