@@ -1,2 +1,2 @@
-inv_frame = 0
+inv_frame = false
 

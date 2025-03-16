@@ -45,3 +45,16 @@ enum collisionflags
 	none,
 	ignoreplatforms,
 }
+
+enum debristype
+{
+	normal,
+	fade
+}
+
+enum afterimage
+{
+	afterimage,
+	mach2effect,
+	enum_length
+}

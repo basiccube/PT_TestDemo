@@ -1,8 +1,10 @@
 if (vsp < 12)
     vsp += grav
-if (inv_frame == 1)
+
+if inv_frame
     image_alpha = 0.5
-if (inv_frame == 0)
+else
     image_alpha = 1
+
 perform_collisions()
 

@@ -1,57 +1,26 @@
-if ((place_meeting((x + 5), y, obj_player) || place_meeting((x - 5), y, obj_player)) && obj_player.mach2 >= 35 && obj_player.attacking == 1)
+with (obj_player)
 {
-    if (obj_player.machhitAnim == 0)
-    {
-        obj_player.machhitAnim = 1
-        obj_player.image_index = 0
-    }
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_destroy()
-    sound_play(sfx_break, false, soundtype.stereo)
+	if place_meeting(x + (xscale * 5), y, other)
+	{
+		if (mach2 >= 35 && attacking)
+		{
+			if !machhitAnim
+		    {
+		        machhitAnim = true
+		        image_index = 0
+		    }
+		    instance_destroy(other)
+		}
+		else if (sprite_index == spr_player_barrelslipnslide || sprite_index == spr_player_barrelroll)
+			instance_destroy(other)
+	}
+	
+	if (place_meeting(x, y + 15, other) && state == states.freefall)
+		instance_destroy(other)
 }
-if ((place_meeting((x + 5), y, obj_player) || place_meeting((x - 5), y, obj_player)) && (obj_player.sprite_index == spr_player_barrelslipnslide || obj_player.sprite_index == spr_player_barrelroll))
+
+with (obj_chasingmonster)
 {
-    instance_destroy()
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    sound_play(sfx_break, false, soundtype.stereo)
-}
-if (place_meeting(x, (y - 15), obj_player) && obj_player.state == states.freefall)
-{
-    instance_destroy()
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-    sound_play(sfx_break, false, soundtype.stereo)
-}
-if ((place_meeting((x - 1), y, obj_chasingmonster) || place_meeting((x + 1), y, obj_chasingmonster)))
-{
-    instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_create((x + 16), (y + 50), obj_wooddebris)
-	instance_destroy()
-	sound_play(sfx_break, false, soundtype.stereo)
+	if place_meeting(x + sign(hsp), y, other)
+		instance_destroy(other)
 }

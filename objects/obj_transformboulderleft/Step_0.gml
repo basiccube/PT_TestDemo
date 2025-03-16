@@ -14,17 +14,17 @@ if check_solid(x - 1, y)
             vsp = -2
             mach2 = 0
             image_index = 0
-            instance_create((x + 10), (y + 10), obj_bumpeffect)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
-            instance_create((x + random_range(15, -15)), (y + random_range(15, -15)), obj_wooddebris)
+			
+			instance_create(x + 10, y + 10, obj_bumpeffect)
+			repeat (10)
+			{
+				with (create_debris(x + random_range(-15, 15), y + random_range(-15, 15), spr_wooddebris))
+				{
+					hsp = random_range(-4, 4)
+					vsp = random_range(-8, -6)
+					rotate = true
+				}
+			}
         }
     }
     instance_destroy()

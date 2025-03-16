@@ -8,9 +8,13 @@ if (place_meeting(x, y, obj_player) && obj_player.grounded && obj_player.state =
     sprite_index = spr_doorkeyopen
     image_speed = 0.35
 	
-    instance_create(x + 50, y + 50, obj_lock)
+	with (create_debris(x + 50, y + 50, spr_lock))
+	{
+		hsp = random_range(-3, 3)
+		vsp = random_range(-5, 0)
+	}
 	instance_destroy(obj_lighting)
-	with (obj_music)
+	with (obj_musicManager)
 		audio_stop_sound(musicID)
 	
 	if !instance_exists(obj_doortransitionend)

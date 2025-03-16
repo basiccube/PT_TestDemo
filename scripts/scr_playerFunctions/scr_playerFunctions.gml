@@ -42,7 +42,14 @@ function player_hurt(_hurtID)
 			if barrel
 			{
 				repeat (10)
-					instance_create(x + random_range(15, -15), y + random_range(15, -15), obj_wooddebris)
+				{
+					with (create_debris(x + random_range(-15, 15), y + random_range(-15, 15), spr_wooddebris))
+					{
+						hsp = random_range(-4, 4)
+						vsp = random_range(-8, -6)
+						rotate = true
+					}
+				}
 			}
 	    }
 	}

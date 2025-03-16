@@ -72,7 +72,14 @@ function scr_player_barrelroll()
 			{
 			    player_bump(-2, -2)
 				repeat (10)
-					instance_create(x + random_range(15, -15), y + random_range(15, -15), obj_wooddebris)
+				{
+					with (create_debris(x + random_range(-15, 15), y + random_range(-15, 15), spr_wooddebris))
+					{
+						hsp = random_range(-4, 4)
+						vsp = random_range(-8, -6)
+						rotate = true
+					}
+				}
 			}
 			
 			if (color_get_value(image_blend) >= 220)

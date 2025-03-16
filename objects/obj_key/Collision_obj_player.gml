@@ -1,7 +1,8 @@
-if (inv_frame == 0 && other.state != states.hurt)
+if (!inv_frame && other.state != states.hurt)
 {
     instance_destroy()
     global.key = true
+	
 	with (other)
 	{
 		key_particles = true

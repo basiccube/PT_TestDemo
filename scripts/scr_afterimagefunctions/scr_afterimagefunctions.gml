@@ -30,7 +30,7 @@ function create_afterimage(_x, _y, _sprite, _index)
 ///@param index
 function create_mach2effect(_x, _y, _sprite, _index)
 {
-	q = 
+	var q = 
 	{
 		x: _x,
 		y: _y,
