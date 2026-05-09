@@ -32,7 +32,6 @@ function scr_player_freefall()
 	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
 		
-	    freefallstart = 0
 	    sound_play(sfx_freefallland, true, soundtype.stereo)
 	}
 	

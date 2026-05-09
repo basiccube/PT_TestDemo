@@ -1,12 +1,13 @@
 function scr_player_comingoutdoor()
 {
+	hsp = 0
 	mach2 = 0
+	
 	jumpAnim = true
 	landAnim = false
 	machslideAnim = false
 	crouchAnim = true
 	machhitAnim = false
-	hsp = 0
 	
 	if (floor(image_index) == image_number - 1)
 	{

@@ -18,43 +18,36 @@ function scr_player_normal()
 	
 	if (!grounded && !keyJump.pressed)
 	{
+		machslideAnim = false
 	    jumpAnim = false
+		image_index = 0
 	    state = states.jump
-	    machslideAnim = false
-	    image_index = 0
 	}
-	if (keyJump.pressed && grounded && keyUp.held && !keyDown.held && !keyDash.held && move == 0)
+	
+	if keyJump.pressed
+	    input_buffer_jump = 0
+	
+	var sjumpPrep = (keyUp.held && move == 0)
+	if (grounded && vsp > 0 && (keyJump.pressed || input_buffer_jump < 8) && !keyDown.held && !keyDash.held)
 	{
-		if (!in_water)
-			vsp = -11
+		if sjumpPrep
+		{
+			vsp = (in_water ? -10 : -11)
+		    state = states.highjump
+		}
 		else
-			vsp = -10
-	    state = states.highjump
-	    image_index = 0
-	    machslideAnim = false
-	    jumpAnim = true
-	    sound_play(sfx_jump, true, soundtype.player)
-	}
-	if (keyJump.pressed && grounded && !keyDown.held && sprite_index != spr_player_Sjumpprep && input_buffer_jump >= 8)
-	{
-		vsp = -9
-	    state = states.jump
-	    image_index = 0
-	    machslideAnim = false
-	    jumpAnim = true
-	    sound_play(sfx_jump, true, soundtype.player)
-	}
-	if (grounded && input_buffer_jump < 8 && !keyDown.held && vsp > 0)
-	{
-		vsp = -9
-	    state = states.jump
-	    jumpAnim = true
-		jumpstop = false
-	    image_index = 0
-	    if !place_meeting(x, y, obj_water2)
-	        instance_create(x, y, obj_landcloud)
-	    freefallstart = 0
-	    sound_play(sfx_jump, true, soundtype.player)
+		{
+			vsp = -9
+		    state = states.jump
+		}
+		
+		machslideAnim = false
+		jumpAnim = true
+		image_index = 0
+		
+		if !place_meeting(x, y, obj_water2)
+			instance_create(x, y, obj_landcloud)
+		sound_play(sfx_jump, true, soundtype.player)
 	}
 	
 	if ((keyDown.held && grounded) || check_solid(x, y - 3))
@@ -66,23 +59,24 @@ function scr_player_normal()
 	    image_index = 0
 	}
 	
+	var maxSpeed = 4
+	if in_water
+		maxSpeed = 3
+	
 	if (move != 0)
 	{
-	    if (movespeed < 4 && !in_water)
+	    if (movespeed < maxSpeed)
 	        movespeed += 0.5
-		else if (movespeed < 3 && in_water)
-			movespeed += 0.5
-		else if (floor(movespeed) == 3 && in_water)
-			movespeed = 3
-	    else if (floor(movespeed) == 4)
-	        movespeed = 4
+	    else if (floor(movespeed) == maxSpeed)
+	        movespeed = maxSpeed
 	}
 	else
 	    movespeed = 0
-	if ((movespeed > 4 && !in_water) || (movespeed > 3 && in_water))
+	
+	if (movespeed > maxSpeed)
 	    movespeed -= 0.1
 	
-	if (keyUp.held && move == 0)
+	if sjumpPrep
 	{
 		if (sprite_index != spr_player_Sjumpprep)
 			image_index = 0
@@ -92,21 +86,22 @@ function scr_player_normal()
 	    if (floor(image_index) == image_number - 1)
 	        image_speed = 0
 	}
-	
-	if !(keyUp.held && move == 0)
+	else
 	{
 	    if (!machslideAnim && !landAnim)
 	    {
 	        if (move == 0)
 	            sprite_index = spr_player_idle
-	        if (move != 0)
+	        else if (move != 0)
 	        {
 	            machslideAnim = false
 	            sprite_index = spr_player_move
 	        }
+			
 	        if (move != 0)
 	            xscale = move
 	    }
+		
 	    if landAnim
 	    {
 	        if (move == 0)
@@ -116,7 +111,7 @@ function scr_player_normal()
 	            if (floor(image_index) == image_number - 1)
 	                landAnim = false
 	        }
-	        if (move != 0)
+	        else if (move != 0)
 	        {
 	            sprite_index = spr_player_land2
 	            if (floor(image_index) == image_number - 1)
@@ -127,6 +122,7 @@ function scr_player_normal()
 	            }
 	        }
 	    }
+		
 	    if (machslideAnim && !machhitAnim)
 	    {
 	        sprite_index = spr_player_machslideend
@@ -140,10 +136,7 @@ function scr_player_normal()
 	        machslideAnim = false
 	    }
 		
-		if (in_water)
-			image_speed = 0.2
-		else
-			image_speed = 0.3
+		image_speed = (in_water ? 0.2 : 0.3)
 	}
 	
 	if (keyDash.held && grounded && !(check_solid(x + xscale, y) && !place_meeting(x + xscale, y, obj_slope)))

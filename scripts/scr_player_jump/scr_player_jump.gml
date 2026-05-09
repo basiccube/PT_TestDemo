@@ -51,7 +51,6 @@ function scr_player_jump()
 		
 	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
-	    freefallstart = 0
 	    sound_play(sfx_land, true, soundtype.stereo)
 	}
 	if (grounded && vsp > 0 && (!keyDash.held || !momemtum))
@@ -65,7 +64,6 @@ function scr_player_jump()
 		
 	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
-	    freefallstart = 0
 	    sound_play(sfx_land, true, soundtype.stereo)
 	}
 	if (grounded && input_buffer_jump < 8 && !keyDown.held && vsp > 0)
@@ -78,7 +76,6 @@ function scr_player_jump()
 		
 	    if !place_meeting(x, y, obj_water2)
 	        instance_create(x, y, obj_landcloud)
-	    freefallstart = 0
 	    sound_play(sfx_jump, true, soundtype.player)
 	}
 	if keyJump.pressed
@@ -106,10 +103,6 @@ function scr_player_jump()
 	}
 	
 	if (move != 0)
-	    xscale = move
-	
-	if (in_water)
-		image_speed = 0.2
-	else
-		image_speed = 0.35
+		xscale = move
+	image_speed = (in_water ? 0.2 : 0.35)
 }

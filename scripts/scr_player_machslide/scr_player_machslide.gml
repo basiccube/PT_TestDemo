@@ -3,10 +3,8 @@ function scr_player_machslide()
 	mach2 = 0
 	hsp = (xscale * movespeed)
 	move = (keyLeft.held + keyRight.held)
-	if (movespeed >= 0 && !in_water)
-	    movespeed -= 0.2
-	if (movespeed >= 0 && in_water)
-		movespeed -= 0.1
+	if (movespeed >= 0)
+	    movespeed -= (in_water ? 0.1 : 0.2)
 	landAnim = false
 	
 	if (floor(hsp) == 0)

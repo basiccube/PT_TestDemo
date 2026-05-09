@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_audioFunctions",
+  "name": "scr_afterimageManager",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

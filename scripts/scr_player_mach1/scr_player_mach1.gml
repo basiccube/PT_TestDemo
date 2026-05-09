@@ -7,7 +7,11 @@ function scr_player_mach1()
 		movespeed = 0
 	}
 	
-	if ((movespeed <= 5 && !in_water) || (movespeed <= 2 && in_water))
+	var maxSpeed = 5
+	if in_water
+		maxSpeed = 2
+	
+	if (movespeed <= maxSpeed)
 	    movespeed += 0.35
 	
 	landAnim = false
@@ -16,7 +20,7 @@ function scr_player_mach1()
 	
 	if (keyJump.pressed && grounded && keyDash.held)
 	{
-	    momemtum = 1
+	    momemtum = true
 	    vsp = -9
 	    state = states.jump
 	    jumpAnim = true
@@ -34,10 +38,9 @@ function scr_player_mach1()
 	        instance_create(x, y, obj_jumpdust)
 	    }
 	}
-	
-	if !grounded
+	else
 	{
-	    momemtum = 1
+	    momemtum = true
 	    state = states.jump
 	    jumpAnim = false
 	    image_index = 0
@@ -50,6 +53,7 @@ function scr_player_mach1()
 	    mach2 = 0
 	    machslideAnim = false
 	}
+	
 	if keyDown.held
 	{
 	    sound_play(sfx_slide, false, soundtype.stereo)
@@ -59,10 +63,7 @@ function scr_player_mach1()
 	
 	sound_play(sfx_mach1, true, soundtype.player)
 	sprite_index = spr_player_mach
-	if !in_water
-		image_speed = 0.35
-	else
-		image_speed = 0.2
+	image_speed = (in_water ? 0.2 : 0.35)
 	
 	if (!instance_exists(obj_dashcloud) && !place_meeting(x, y, obj_water2) && grounded)
 	    instance_create(x, y, obj_dashcloud)

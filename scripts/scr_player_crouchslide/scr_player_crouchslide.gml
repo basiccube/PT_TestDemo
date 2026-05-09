@@ -19,6 +19,7 @@ function scr_player_crouchslide()
 	
 	sprite_index = spr_player_crouchslip
 	image_speed = 0.35
+	
 	if (!instance_exists(obj_slidecloud) && grounded && movespeed > 5)
 	    instance_create(x, y, obj_slidecloud)
 }

@@ -63,8 +63,5 @@ function scr_player_crouch()
 	if (move != 0 && hsp != 0)
 		sound_play(sfx_crawl, true, soundtype.player)
 	
-	if (in_water)
-		image_speed = 0.2
-	else
-		image_speed = 0.35
+	image_speed = (in_water ? 0.2 : 0.35)
 }

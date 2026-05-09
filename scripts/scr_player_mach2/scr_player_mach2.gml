@@ -1,26 +1,26 @@
 function scr_player_mach2()
 {
 	hsp = (xscale * movespeed)
+	movespeed = (in_water ? 7 : 10)
 	machslideAnim = false
-	if (!in_water)
-		movespeed = 10
-	else
-		movespeed = 7
 	
 	if keyJump.pressed
 	    input_buffer_jump = 0
+	
 	if (!keyDash.held && grounded)
 	{
 	    state = states.machslide
 	    image_index = 0
 	    mach2 = 35
 	}
+	
 	if (keyDown.held && grounded)
 	{
 	    sound_play(sfx_slide, false, soundtype.stereo)
 	    machhitAnim = false
 	    state = states.crouchslide
 	}
+	
 	if (!keyJump.held && !jumpstop && vsp < 0.5)
 	{
 	    vsp /= 2
@@ -40,6 +40,7 @@ function scr_player_mach2()
 		repeat (4)
 			instance_create(x - (xscale * 30), y + 40, obj_waterdrop)
 	}
+	
 	if grounded
 		sound_play(sfx_mach2, true, soundtype.player)
 	
@@ -53,8 +54,5 @@ function scr_player_mach2()
 	if (!instance_exists(obj_dashcloud) && grounded && !place_meeting(x, y + 1, obj_water))
 	    instance_create(x, y, obj_dashcloud)
 	
-	if !in_water
-		image_speed = 0.6
-	else
-		image_speed = 0.35
+	image_speed = (in_water ? 0.35 : 0.6)
 }

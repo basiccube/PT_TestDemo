@@ -72,9 +72,6 @@ function scr_player_crouchjump()
 	    sprite_index = spr_player_crouchfall
 	
 	if (move != 0)
-	    xscale = move
-	if (in_water)
-		image_speed = 0.2
-	else
-		image_speed = 0.35
+		xscale = move
+	image_speed = (in_water ? 0.2 : 0.35)
 }

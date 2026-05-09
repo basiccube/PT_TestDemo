@@ -3,18 +3,17 @@ function scr_player_hurt()
 	combo = 0
 	mach2 = 0
 	jumpAnim = true
-	if grounded
-	    landAnim = false
-	else
-	    landAnim = true
+	landAnim = !grounded
 	jumpstop = false
 	machslideAnim = false
 	crouchAnim = false
 	machhitAnim = false
 	movespeed = 0
 	hurted = true
-	if instance_exists(obj_hook)
-	    obj_hook.hooked = 0
+	
+	with (obj_hook)
+		hooked = false
+	
 	alarm[5] = 2
 	alarm[7] = 60
 	

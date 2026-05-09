@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_tileFunctions",
+  "name": "scr_tiles",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

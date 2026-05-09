@@ -105,36 +105,20 @@ if (key_particles && global.key)
 if (inv_frames == 0 && !hurted && state != states.door && state != states.comingoutdoor)
     image_alpha = 1
 
-if (state == states.mach2 || state == states.punch || state == states.freefall || state == states.barrelroll)
-    attacking = 1
-else
-    attacking = 0
-if (state == states.freefall)
-    instakillmove = 1
-else
-    instakillmove = 0
+attacking = (state == states.mach2 || state == states.punch || state == states.freefall || state == states.barrelroll)
+instakillmove = (state == states.freefall)
 
-if (flash == 1 && alarm[0] <= 0)
-    alarm[0] = (0.15 * room_speed)
+if (flash && alarm[0] <= 0)
+    alarm[0] = 0.15 * room_speed
 
-if ((place_meeting(x, y, obj_water) || place_meeting(x, y, obj_water2) || place_meeting(x, y, obj_current) || place_meeting(x, y, obj_current2)) && state != states.barrelfloat)
-	in_water = true
-else
-	in_water = false
+in_water = ((place_meeting(x, y, obj_water) || place_meeting(x, y, obj_water2) || place_meeting(x, y, obj_current) || place_meeting(x, y, obj_current2)) && state != states.barrelfloat)
 if (in_water && alarm[8] <= 0)
 	alarm[8] = 30
-if (in_water)
-	grav = 0.35
-else
-	grav = 0.5
-	
-if (state == states.barrel || state == states.barrelbump || state == states.barrelfloat || state == states.barrelroll)
-	barrel = true
-else
-	barrel = false
+grav = (in_water ? 0.35 : 0.5)
 
+barrel = (state == states.barrel || state == states.barrelbump || state == states.barrelfloat || state == states.barrelroll)
 if (state != states.mach1 && state != states.jump)
-    momemtum = 0
+    momemtum = false
 if (state != states.jump)
     ladderbuffer = 0
 
